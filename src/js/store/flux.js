@@ -5,10 +5,10 @@ const getState = ({ getStore, setStore }) => {
 			newContacto: {},
 			detalle: {
 				agenda_slug: "agenda_aron",
-				full_name: "",
-				email: "",
-				phone: "",
-				address: ""
+				full_name: "tresas ",
+				email: "adsadsa@gmail.com",
+				phone: "dasdsa",
+				address: "dasdadsad"
 			}
 		},
 		actions: {
@@ -17,7 +17,7 @@ const getState = ({ getStore, setStore }) => {
 			contacto: method => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/", method)
 					.then(response => response.json())
-					.then(data => setStore(data))
+					.then(data => setStore({ newContacto: data }))
 					.catch(error => console.error(error));
 			}
 		}
