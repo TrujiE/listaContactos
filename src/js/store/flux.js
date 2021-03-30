@@ -5,15 +5,20 @@ const getState = ({ getStore, setStore }) => {
 			newContacto: {},
 			detalle: {
 				agenda_slug: "agenda_aron",
-				full_name: "tresas ",
-				email: "adsadsa@gmail.com",
-				phone: "dasdsa",
-				address: "dasdadsad"
+				full_name: "",
+				email: "",
+				phone: "",
+				address: ""
 			}
 		},
 		actions: {
 			//(Arrow) Functions that update the Store
-			// Remember to use the scope: scope.state.store & scope.setState()
+            // Remember to use the scope: scope.state.store & scope.setState()
+            onContacthange: evento => {
+                const {detalle} = getStore();
+                const newContact={[evento.target.name]: evento.target.value};
+                setStore({detalle:{...detalle,[evento.target.name]: evento.target.value}});
+            },
 			contacto: method => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/", method)
 					.then(response => response.json())
