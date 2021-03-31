@@ -5,11 +5,6 @@ import { Context } from "../store/appContext";
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
 
-	const config = {
-		headers: { "Content-Type": "Application/json" },
-		body: JSON.stringify([{ detalle }]),
-		method: "POST"
-	};
 	return (
 		<div className="container">
 			<div>
@@ -29,8 +24,8 @@ export const AddContact = () => {
 					<div className="form-group">
 						<label>Email</label>
 						<input
-                            type="email"
-                            name="email"
+							type="email"
+							name="email"
 							className="form-control"
 							placeholder="Enter email"
 							onChange={e => actions.onContactChange(e)}
@@ -62,8 +57,8 @@ export const AddContact = () => {
 					<button
 						type="button"
 						className="btn btn-primary form-control"
-						onClick={() => {
-							
+						onClick={e => {
+							actions.onContactOnClick(e);
 						}}>
 						save
 					</button>
