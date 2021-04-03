@@ -40,6 +40,19 @@ const getState = ({ getStore, setStore }) => {
 						address: ""
 					}
 				});
+            },
+            onContactDelete: evento => {
+				evento.preventDefault();
+				const { detalle } = getStore();
+				fetch("https://assets.breatheco.de/apis/fake/contact/", {
+					headers: {
+						"Content-Type": "application/json"
+					},
+					method: "DELETE"
+				})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log(error));
 			}
 		}
 	};
