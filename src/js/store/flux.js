@@ -24,7 +24,6 @@ const getState = ({ getStore, setStore }) => {
 					.then(response => response.json())
 					.then(data => setStore(data))
 					.catch(error => console.log(error));
-				setStore({ detalle });
 			},
 			onContactOnClick: evento => {
 				evento.preventDefault();
