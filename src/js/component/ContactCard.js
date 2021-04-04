@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
@@ -38,8 +38,13 @@ export const ContactCard = props => {
 												<button className="btn">
 													<i className="fas fa-pencil-alt mr-3" />
 												</button>
-												<button className="btn" onClick={() => props.onDelete()}>
-													<i className="fas fa-trash-alt" />
+												<button
+													className="btn"
+													//onClick={() => props.onDelete("/contact/" + elemento.id)}>
+													onClick={() => actions.onContactDelete("/contact/" + elemento.id)}>
+													<Link to="/">
+														<i className="fas fa-trash-alt" />
+													</Link>
 												</button>
 											</div>
 											<label className="name lead">{elemento.full_name}</label>

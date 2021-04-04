@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export const Modal = props => {
+	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({
 		//initialize state here
 	});
@@ -29,10 +32,14 @@ export const Modal = props => {
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button onClick={() => props.onClose()} type="button" className="btn btn-primary">
 							Oh no!
 						</button>
-						<button type="button" className="btn btn-secondary" data-dismiss="modal">
+						<button
+							onClick={e => actions.onContactDelete(e)}
+							type="button"
+							className="btn btn-secondary"
+							data-dismiss="modal">
 							Do it!
 						</button>
 					</div>
