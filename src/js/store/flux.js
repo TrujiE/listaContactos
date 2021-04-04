@@ -69,6 +69,19 @@ const getState = ({ getStore, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
+			},
+			onAddLimpia: () => {
+				evento.preventDefault();
+				const { detalle } = getStore();
+				setStore({
+					detalle: {
+						agenda_slug: "agenda_aron",
+						full_name: "",
+						email: "",
+						phone: "",
+						address: ""
+					}
+				});
 			}
 		}
 	};
