@@ -18,6 +18,14 @@ const getState = ({ getStore, setStore }) => {
 				const newContact = { [evento.target.name]: evento.target.value };
 				setStore({ detalle: { ...detalle, [evento.target.name]: evento.target.value } });
 			},
+			onContactChange2: evento => {
+				const { detalle } = getStore();
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + evento)
+					.then(response => response.json())
+					.then(data => setStore(data))
+					.catch(error => console.log(error));
+				setStore({ detalle });
+			},
 			onContactOnClick: evento => {
 				evento.preventDefault();
 				const { detalle } = getStore();
@@ -47,6 +55,17 @@ const getState = ({ getStore, setStore }) => {
 						"Content-Type": "application/json"
 					},
 					method: "DELETE"
+				})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log(error));
+			},
+			onContactUpdate: evento => {
+				fetch("https://assets.breatheco.de/apis/fake" + evento, {
+					headers: {
+						"Content-Type": "application/json"
+					},
+					method: "UPDATE"
 				})
 					.then(response => response.json())
 					.then(data => console.log(data))

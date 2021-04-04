@@ -18,7 +18,7 @@ export const AddContact = () => {
 							className="form-control"
 							placeholder="Full Name"
 							onChange={e => actions.onContactChange(e)}
-							value={store.detalle.full_name}
+							value={store.full_name}
 						/>
 					</div>
 					<div className="form-group">
@@ -29,7 +29,7 @@ export const AddContact = () => {
 							className="form-control"
 							placeholder="Enter email"
 							onChange={e => actions.onContactChange(e)}
-							value={store.detalle.email}
+							value={store.email}
 						/>
 					</div>
 					<div className="form-group">
@@ -40,7 +40,7 @@ export const AddContact = () => {
 							className="form-control"
 							placeholder="Enter phone"
 							onChange={e => actions.onContactChange(e)}
-							value={store.detalle.phone}
+							value={store.phone}
 						/>
 					</div>
 					<div className="form-group">
@@ -51,7 +51,7 @@ export const AddContact = () => {
 							className="form-control"
 							placeholder="Enter address"
 							onChange={e => actions.onContactChange(e)}
-							value={store.detalle.address}
+							value={store.address}
 						/>
 					</div>
 					<button

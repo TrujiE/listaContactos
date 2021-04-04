@@ -35,14 +35,18 @@ export const ContactCard = props => {
 										</div>
 										<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 											<div className=" float-right">
-												<button className="btn">
-													<i className="fas fa-pencil-alt mr-3" />
+												<button
+													className="btn"
+													onClick={() => actions.onContactChange2(elemento.id)}>
+													<Link className="btn" to="/add">
+														<i className="fas fa-pencil-alt mr-3" />
+													</Link>
 												</button>
 												<button
 													className="btn"
 													//onClick={() => props.onDelete("/contact/" + elemento.id)}>
 													onClick={() => actions.onContactDelete("/contact/" + elemento.id)}>
-													<Link to="/">
+													<Link className="btn" to="/">
 														<i className="fas fa-trash-alt" />
 													</Link>
 												</button>
